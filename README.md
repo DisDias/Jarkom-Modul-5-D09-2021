@@ -53,7 +53,8 @@ A7 | 192.196.6.0 | /24
 A8 | 192.196.7.136 | /29
 
 ## Penyelesaian Soal  
-### Soal 3  ###
+### Soal 3  
+
 Pada soal ketiga, kita diminta untuk membatasi  koneksi ICMP DHCP dan DNS Server maksimal 3 secara bersamaan, selebihnya didrop. Kita bisa menyelesaikan soal tersebut dengan iptables di bawah.  
 `iptables -A INPUT -p icmp -m connlimit --connlimit-above 3 --connlimit-mask 0 -j DROP`  
   
@@ -82,7 +83,8 @@ Lakukan pengetesan dengan ping IP Jipangu/Doriki pada 4 node secara bersamaan. `
 ![3-4](https://user-images.githubusercontent.com/68385532/145676943-a786c10d-c681-41ce-afdb-cc4d3e7f4553.PNG)  
 
 
-### Soal 4  ###
+### Soal 4  
+
 Pada soal keempat, kita diminta untuk membatasi akses ke Doriki yang berasal dari subnet Blueno dan Cipher - hanya diperbolehkan pada pukul 07.00 - 15.00 pada hari Senin sampai Kamis.  Kita bisa menyelesaikan soal tersebut dengan iptables di bawah.  
 ```
 #Jalankan di Doriki
@@ -98,7 +100,8 @@ iptables -A INPUT -s 192.196.7.0/25 -j REJECT
 
 ![4-2](https://user-images.githubusercontent.com/68385532/145676947-0f28bce4-539a-4b7c-874d-b63ec84573b9.PNG)  
 
-### Soal 5  ###
+### Soal 5  
+
 Pada soal kelima, kita diminta untuk membatasi akses ke Doriki yang berasal dari subnet Elena dan Fukurou - hanya diperbolehkan pada pukul 15.01 - 06.59 setiap harinya.  Kita bisa menyelesaikan soal tersebut dengan iptables di bawah.  
 ```
 #Elena A6
@@ -136,7 +139,8 @@ Lakukan pengetesan dengan `ping google.com` pada node client setelah tanggal diu
 ![5-2](https://user-images.githubusercontent.com/68385532/145676950-80a7994a-3a55-413d-a891-009d948c07ad.PNG)  
 
 
-###Soal 6  ###
+###Soal 6  
+
 Pada soal keenam, kita diminta agar Guanhou disetting sehingga setiap request dari client yang mengakses DNS Server akan didistribusikan secara bergantian pada Jorge dan Maingate.  
 ```
 iptables -A PREROUTING -t nat -p tcp -d 192.196.7.128 --dport 80 -m statistic --mode nth --every 2 --packet 0 -j DNAT --to-destination  192.196.7.138:80
