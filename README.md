@@ -55,18 +55,65 @@ A8 | 192.196.7.136 | /29
 ## C.) Routing
 
 ### Foosha
-    ![image](https://user-images.githubusercontent.com/65032157/145677429-a5248218-7973-464c-8c43-d5d93f16bcf7.png)
+   ![C_1](https://user-images.githubusercontent.com/65032157/145677965-5f741ce3-1ad3-45ba-8648-d426988477db.png)
 
     
 ### Guanhao
-    ![image](https://user-images.githubusercontent.com/65032157/145677527-5cc0137b-c66f-4688-ad31-f7f41030d62c.png)
+   ![C_2](https://user-images.githubusercontent.com/65032157/145677928-1114248b-3fc4-4069-ab8a-c95396291264.png)
 
     
 ### Water7
-    ![image](https://user-images.githubusercontent.com/65032157/145677462-d6adc4e0-132f-49cb-822d-a08d054c6f21.png)
+   ![C_3](https://user-images.githubusercontent.com/65032157/145677943-23d8a1ad-b5a1-4375-917e-64557e664afd.png)
 
 
-## D.)
+## D.) IP DHCP pada subnet Blueno, Cipher, Fukurou, dan Elena
+
+    DHCP Server diletakkan pada Jipangu dengan file konfigurasi `/etc/dhcp/dhcpd.conf` sebagai berikut. Konfigurasi ini digunakan untuk memberikan IP address untuk masing-masing client
+```
+#Blueno
+subnet 192.196.7.0 netmask 255.255.255.128 {
+    range 192.196.7.2 192.196.7.126;
+    option routers 192.196.7.1;
+    option broadcast-address 192.196.7.127;
+    option domain-name-servers 192.196.7.130;
+    default-lease-time 360;
+    max-lease-time 7200;
+}
+
+subnet 192.196.7.128 netmask 255.255.255.248 {
+}
+
+#Cipher
+subnet 192.196.0.0 netmask 255.255.252.0 {
+    range 192.196.0.2 192.196.3.254;
+    option routers 192.196.0.1;
+    option broadcast-address 192.196.3.255;
+    option domain-name-servers 192.196.7.130;
+    default-lease-time 360;
+    max-lease-time 7200;
+}
+
+#Elena
+subnet 192.196.4.0 netmask 255.255.254.0 {
+    range 192.196.4.2 192.196.5.254;
+    option routers 192.196.4.1;
+    option broadcast-address 192.196.5.255;
+    option domain-name-servers 192.196.7.130;
+    default-lease-time 360;
+    max-lease-time 7200;
+}
+
+#Fukurou
+subnet 192.196.6.0 netmask 255.255.255.0 {
+    range 192.196.6.2 192.196.6.254;
+    option routers 192.196.6.1;
+    option broadcast-address 192.196.6.255;
+    option domain-name-servers 192.196.7.130;
+    default-lease-time 360;
+    max-lease-time 7200;
+}    
+```
+    
 
 ### Soal 1
     
