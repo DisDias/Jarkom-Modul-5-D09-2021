@@ -68,7 +68,8 @@ A8 | 192.196.7.136 | /29
 
 ## D.) IP DHCP pada subnet Blueno, Cipher, Fukurou, dan Elena
 
-    DHCP Server diletakkan pada Jipangu dengan file konfigurasi `/etc/dhcp/dhcpd.conf` sebagai berikut. Konfigurasi ini digunakan untuk memberikan IP address untuk masing-masing client
+DHCP Server diletakkan pada Jipangu dengan file konfigurasi `/etc/dhcp/dhcpd.conf` sebagai berikut. Konfigurasi ini digunakan untuk memberikan IP address untuk masing-masing client
+    
 ```
 #Blueno
 subnet 192.196.7.0 netmask 255.255.255.128 {
