@@ -139,7 +139,7 @@ Lakukan pengetesan dengan `ping google.com` pada node client setelah tanggal diu
 ![5-2](https://user-images.githubusercontent.com/68385532/145676950-80a7994a-3a55-413d-a891-009d948c07ad.PNG)  
 
 
-###Soal 6  
+### Soal 6  
 
 Pada soal keenam, kita diminta agar Guanhou disetting sehingga setiap request dari client yang mengakses DNS Server akan didistribusikan secara bergantian pada Jorge dan Maingate.  
 ```
