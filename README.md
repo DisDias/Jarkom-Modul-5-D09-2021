@@ -6,12 +6,12 @@ Dias Tri Kurniasari | 05111940000035
 Nazhwa Ameera H | 05111940000133
 Nur Moh. Ihsanuddien | 05111940000142
 
-## Topologi 
+## A.) Topologi 
 
 <img src="img/M05-0.0.png">
 
 
-## Subnetting
+## B.) Subnetting
 Pembagian subnet pada topologi ini menggunakan metode VLSM.
 
 <img src="img/M05-1.0.png">
@@ -51,8 +51,28 @@ A5 | 192.196.7.148 | /30
 A6 | 192.196.4.0 | /23
 A7 | 192.196.6.0 | /24
 A8 | 192.196.7.136 | /29
+    
+## C.) Routing
 
-## Penyelesaian Soal  
+### Foosha
+    ![image](https://user-images.githubusercontent.com/65032157/145677429-a5248218-7973-464c-8c43-d5d93f16bcf7.png)
+
+    
+### Guanhao
+    ![image](https://user-images.githubusercontent.com/65032157/145677527-5cc0137b-c66f-4688-ad31-f7f41030d62c.png)
+
+    
+### Water7
+    ![image](https://user-images.githubusercontent.com/65032157/145677462-d6adc4e0-132f-49cb-822d-a08d054c6f21.png)
+
+
+## D.)
+
+### Soal 1
+    
+    
+### Soal 2
+ 
 ### Soal 3  
 
 Pada soal ketiga, kita diminta untuk membatasi  koneksi ICMP DHCP dan DNS Server maksimal 3 secara bersamaan, selebihnya didrop. Kita bisa menyelesaikan soal tersebut dengan iptables di bawah.  
