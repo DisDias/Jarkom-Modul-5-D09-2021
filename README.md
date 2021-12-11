@@ -54,7 +54,7 @@ A8 | 192.196.7.136 | /29
     
     
 Setting Interface :
-    *Foosha
+* Foosha
 ```
 auto eth0
 iface eth0 inet static
@@ -72,7 +72,7 @@ iface eth2 inet static
 	address 192.196.7.145
 	netmask 255.255.255.252
 ```
-    *Guanhao
+* Guanhao
 ```
 auto eth0
 iface eth0 inet static
@@ -95,7 +95,7 @@ iface eth3 inet static
 	address 192.196.7.137
 	netmask 255.255.255.248
 ```
-    *Water7
+* Water7
 ```
 auto eth0
 iface eth0 inet static
@@ -118,7 +118,7 @@ iface eth3 inet static
 	address 192.196.7.129
 	netmask 255.255.255.248
 ```
-    *Doriki
+* Doriki
 ```
 auto eth0
 iface eth0 inet static
@@ -126,7 +126,7 @@ iface eth0 inet static
 	netmask 255.255.255.248
 	gateway 192.196.7.129
 ```
-    *Jipangu
+* Jipangu
 ```
 auto eth0
 iface eth0 inet static
@@ -134,7 +134,7 @@ iface eth0 inet static
 	netmask 255.255.255.248
 	gateway 192.196.7.129
 ```
-    *Jorge
+* Jorge
 ```
 auto eth0
 iface eth0 inet static
@@ -142,7 +142,7 @@ iface eth0 inet static
 	netmask 255.255.255.248
 	gateway 192.196.7.137
 ```
-    *Maingate
+* Maingate
 ```
 auto eth0
 iface eth0 inet static
@@ -150,7 +150,7 @@ iface eth0 inet static
 	netmask 255.255.255.248
 	gateway 192.196.7.137
 ```
-    *Blueno,Cipher,Fukurou,Elena
+* Blueno,Cipher,Fukurou,Elena
 ```
 auto eth0
 iface eth0 inet dhcp
@@ -190,6 +190,26 @@ route add -net 192.196.6.0 netmask 255.255.255.0 gw 192.196.7.150
 
 
 ## D.) IP DHCP pada subnet Blueno, Cipher, Fukurou, dan Elena
+
+Pada water7, foosha, dan guanhao menginstall  `isc-dhcp-relay`
+	
+* Water7
+```
+SERVERS="192.196.7.131"
+INTERFACES="eth0 eth1 eth2 eth3"
+```
+* Foosha
+```
+SERVERS="192.196.7.131"
+INTERFACES="eth1 eth2"
+```
+* Guanhao
+```
+SERVERS="192.196.7.131"
+INTERFACES="eth0 eth1 eth2"
+```
+	
+
 
 DHCP Server diletakkan pada Jipangu dengan file konfigurasi `/etc/dhcp/dhcpd.conf` sebagai berikut. Konfigurasi ini digunakan untuk memberikan IP address untuk masing-masing client
     
