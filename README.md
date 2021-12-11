@@ -52,6 +52,111 @@ A6 | 192.196.4.0 | /23
 A7 | 192.196.6.0 | /24
 A8 | 192.196.7.136 | /29
     
+    
+Setting Interface :
+    *Foosha
+```
+auto eth0
+iface eth0 inet static
+    address 192.168.122.9
+    netmask 255.255.255.0
+    gateway 192.168.122.1
+
+auto eth1
+iface eth1 inet static
+	address 192.196.7.149
+	netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+	address 192.196.7.145
+	netmask 255.255.255.252
+```
+    *Guanhao
+```
+auto eth0
+iface eth0 inet static
+	address 192.196.7.150
+	netmask 255.255.255.252
+        gateway 192.196.7.149
+
+auto eth1
+iface eth1 inet static
+	address 192.196.4.1
+	netmask 255.255.254.0
+
+auto eth2
+iface eth2 inet static
+	address 192.196.6.1
+	netmask 255.255.255.0
+
+auto eth3
+iface eth3 inet static
+	address 192.196.7.137
+	netmask 255.255.255.248
+```
+    *Water7
+```
+auto eth0
+iface eth0 inet static
+	address 192.196.7.146
+	netmask 255.255.255.252
+        gateway 192.196.7.145
+
+auto eth1
+iface eth1 inet static
+	address 192.196.7.1
+	netmask 255.255.255.128
+
+auto eth2
+iface eth2 inet static
+	address 192.196.0.1
+	netmask 255.255.252.0
+
+auto eth3
+iface eth3 inet static
+	address 192.196.7.129
+	netmask 255.255.255.248
+```
+    *Doriki
+```
+auto eth0
+iface eth0 inet static
+	address 192.196.7.130
+	netmask 255.255.255.248
+	gateway 192.196.7.129
+```
+    *Jipangu
+```
+auto eth0
+iface eth0 inet static
+	address 192.196.7.131
+	netmask 255.255.255.248
+	gateway 192.196.7.129
+```
+    *Jorge
+```
+auto eth0
+iface eth0 inet static
+	address 192.196.7.138
+	netmask 255.255.255.248
+	gateway 192.196.7.137
+```
+    *Maingate
+```
+auto eth0
+iface eth0 inet static
+	address 192.196.7.139
+	netmask 255.255.255.248
+	gateway 192.196.7.137
+```
+    *Blueno,Cipher,Fukurou,Elena
+```
+auto eth0
+iface eth0 inet dhcp
+```
+    
+    
 ## C.) Routing
 
 ### Foosha
