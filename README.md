@@ -55,14 +55,32 @@ A8 | 192.196.7.136 | /29
 ## C.) Routing
 
 ### Foosha
+
+```
+Routing ke Server
+route add -net 192.196.7.128 netmask 255.255.255.248 gw 192.196.7.146
+route add -net 192.196.7.136 netmask 255.255.255.248 gw 192.196.7.150
+
+Routing ke Client
+route add -net 192.196.7.0 netmask 255.255.255.128 gw 192.196.7.146
+route add -net 192.196.0.0  netmask 255.255.252.0 gw 192.196.7.146
+route add -net 192.196.4.0 netmask 255.255.254.0 gw 192.196.7.150
+route add -net 192.196.6.0 netmask 255.255.255.0 gw 192.196.7.150
+```
    ![C_1](https://user-images.githubusercontent.com/65032157/145677965-5f741ce3-1ad3-45ba-8648-d426988477db.png)
 
     
 ### Guanhao
+    ```
+    route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.196.7.149
+    ```
    ![C_2](https://user-images.githubusercontent.com/65032157/145677928-1114248b-3fc4-4069-ab8a-c95396291264.png)
 
     
 ### Water7
+    ```
+    route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.196.7.145
+    ```
    ![C_3](https://user-images.githubusercontent.com/65032157/145677943-23d8a1ad-b5a1-4375-917e-64557e664afd.png)
 
 
@@ -117,10 +135,50 @@ subnet 192.196.6.0 netmask 255.255.255.0 {
     
 
 ### Soal 1
+Agar topologi yang kalian buat dapat mengakses keluar, kalian diminta untuk
+mengkonfigurasi Foosha menggunakan iptables, tetapi Luffy tidak ingin menggunakan
+MASQUERADE.
     
+Di `FOOSHA` melakukan command `iptables -t nat -A POSTROUTING -s 192.196.0.0/21 -o eth0 -j SNAT --to-source (IP FOOSHA)`
+
+Keterangan :
+* -t nat: Menggunakan tabel NAT karena akan mengubah alamat asal dari paket
+* A POSTROUTING: Menggunakan chain POSTROUTING karena mengubah asal paket setelah routing
+* s 192.196.0.0/21: Mendifinisikan alamat asal dari paket yaitu semua alamat IP dari subnet 192.196.0.0/21
+* o eth0: Paket keluar dari eth0 Foosha
+* j SNAT: Menggunakan target SNAT untuk mengubah source atau alamat asal dari paket
+* --to-s (ip eth0): Mendefinisikan IP source, di mana digunakan eth0 FOOSHA 
+    
+Testing :
+    
+![image](https://user-images.githubusercontent.com/65032157/145679667-2963182a-8de4-414b-b289-f6761aba20b0.png)
+
     
 ### Soal 2
- 
+
+Kalian diminta untuk mendrop semua akses HTTP dari luar Topologi kalian pada server
+yang merupakan DHCP Server dan DNS Server demi menjaga keamanan.
+    
+Pada `FOOSHA` melakukan command `iptables -A FORWARD -d 192.196.7.128/29 -i eth0 -p tcp --dport 80 -j DROP`
+    
+Keterangan:
+
+* A FORWARD: Menggunakan chain FORWARD
+* p tcp: Mendefinisikan protokol yang digunakan, yaitu tcp
+* --dport 80: Mendefinisikan port yang digunakan, yaitu 80 (HTTP)
+* -d 192.196.7.128/29: Mendefinisikan alamat tujuan dari paket (DHCP dan DNS SERVER ) berada pada subnet  192.196.7.128/29
+* -i eth0: Paket masuk dari eth0 FOOSHA
+* -j DROP: Paket di-Drop
+    
+Testing : 
+
+Pengecekan dengan `nmap` ke `IP Doriki`
+![image](https://user-images.githubusercontent.com/65032157/145679781-d48d0afa-2bdb-44bc-91e9-d3c30f78d60e.png)
+
+Serta saat dilakukan tes ping keluar topologi diama `google.com` merupakan HTTPS serta `monta.if.its.ac.id` merupakan HTTP
+
+![image](https://user-images.githubusercontent.com/65032157/145679808-5e1341b2-cdf9-4f4d-89a6-aff1538497fa.png)
+
 ### Soal 3  
 
 Pada soal ketiga, kita diminta untuk membatasi  koneksi ICMP DHCP dan DNS Server maksimal 3 secara bersamaan, selebihnya didrop. Kita bisa menyelesaikan soal tersebut dengan iptables di bawah.  
